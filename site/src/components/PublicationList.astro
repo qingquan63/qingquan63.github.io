@@ -5,12 +5,14 @@ import {
   type BibEntry,
   type CitationStyle,
 } from "../lib/bibtex";
+import { researchTopics } from "../data/research-topics";
 
 interface Props {
   papers: BibEntry[];
+  showTopics?: boolean;
 }
 
-const { papers } = Astro.props;
+const { papers, showTopics = false } = Astro.props;
 const citationStyles = Object.entries(citationStyleLabels) as [CitationStyle, string][];
 const dialogId = `citation-dialog-${papers[0]?.id ?? "empty"}`;
 ---
@@ -23,6 +25,9 @@ const dialogId = `citation-dialog-${papers[0]?.id ?? "empty"}`;
     {papers.map((paper, index) => {
       const description = paper.abstract ?? paper.summary;
       const citations = formatCitations(paper);
+      const topics = showTopics
+        ? researchTopics.filter((topic) => paper.keywords.includes(topic.tag))
+        : [];
 
       return (
         <li>
@@ -66,7 +71,10 @@ const dialogId = `citation-dialog-${papers[0]?.id ?? "empty"}`;
                     {paper.year}
                   </time>
                 )}
-                {paper.category && (
+                {topics.map(({ tag }) => (
+                  <span class="research-topic-tag rounded-full px-2 py-0.5 font-semibold" data-research-topic={tag}>{tag}</span>
+                ))}
+                {topics.length === 0 && paper.category && (
                   <span class="scholarly-pill ml-1">{paper.category}</span>
                 )}
               </div>

@@ -1,4 +1,5 @@
 import { defineSiteConfig } from "./src/config/site";
+import { researchTopics } from "./src/data/research-topics";
 
 export const siteConfig = defineSiteConfig({
   author: "Qingquan Zhang",
@@ -9,7 +10,9 @@ export const siteConfig = defineSiteConfig({
     headline: "Fair and trustworthy AI",
     subheadline:
       "I am a third-year Ph.D. student in the Department of Computer Science and Engineering at Southern University of Science and Technology (SUSTech). My research focuses on fair machine learning and responsible AI, particularly group fairness and bias in large language models. I also use multi-objective optimization and learning to generate diverse game content. I earned my master's degree in Computer Science and Technology from SUSTech and my bachelor's degree in Intelligent Science and Technology from Xidian University.",
-    profileImage: "",
+    profileImage: "/profile.jpg",
+    profileImageWidth: 1073,
+    profileImageHeight: 1509,
   },
   description:
     "Qingquan Zhang studies fairness in machine learning, bias in large language models, and procedural content generation for games.",
@@ -25,11 +28,7 @@ export const siteConfig = defineSiteConfig({
     { label: "Jialin Liu", href: "https://cse.sustech.edu.cn/faculty/~liujl/research.html" },
     { label: "Xin Yao", href: "https://cse.sustech.edu.cn/faculty/~xiny/" },
   ],
-  researchInterests: [
-    "Fair Machine Learning & Responsible AI",
-    "AI in Games",
-    "Multi-objective Optimization/Learning",
-  ],
+  researchInterests: researchTopics.map((topic) => topic.title),
   navLinks: [
     { href: "/about", label: "About" },
     { href: "/researches", label: "Publications" },

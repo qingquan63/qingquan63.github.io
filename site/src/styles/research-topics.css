@@ -1,0 +1,42 @@
+[data-research-topic="fair"] {
+  --topic-background: #edf5ee;
+  --topic-border: #a7c4ae;
+  --topic-text: #274e34;
+}
+
+[data-research-topic="game"] {
+  --topic-background: #edf4fa;
+  --topic-border: #aac4db;
+  --topic-text: #244961;
+}
+
+[data-research-topic="multi-objective"] {
+  --topic-background: #f5eff8;
+  --topic-border: #c9b6d7;
+  --topic-text: #513761;
+}
+
+.dark [data-research-topic="fair"] {
+  --topic-background: #202e25;
+  --topic-border: #54725d;
+  --topic-text: #cce6d2;
+}
+
+.dark [data-research-topic="game"] {
+  --topic-background: #1e2c37;
+  --topic-border: #4f6c82;
+  --topic-text: #cbe1f2;
+}
+
+.dark [data-research-topic="multi-objective"] {
+  --topic-background: #2b2333;
+  --topic-border: #715b83;
+  --topic-text: #e8d8f1;
+}
+
+.research-topic-card,
+.research-topic-tag {
+  border: 1px solid var(--topic-border);
+  background-color: var(--topic-background);
+  color: var(--topic-text);
+}

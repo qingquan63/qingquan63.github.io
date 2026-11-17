@@ -23,6 +23,7 @@ export interface BibEntry {
 	summary?: string;
 	codeUrl?: string;
 	featured?: boolean;
+	featuredOrder?: number;
 	category: string;
 	keywords: string[];
 }
@@ -252,6 +253,9 @@ export function parseBibtex(raw: string): BibEntry[] {
 		const authorParts = fields.author ? splitOutsideBraces(fields.author, /\s+and\s+/).map(nameParts) : [];
 		const text = (key: string) => fields[key] ? displayText(fields[key]) : undefined;
 		const publicField = text('public')?.toLowerCase();
+		const featuredField = text('featured')?.toLowerCase();
+		const featuredOrder = Number(featuredField);
+		const hasFeaturedOrder = Number.isSafeInteger(featuredOrder) && featuredOrder > 0;
 		const year = fields.year ? Number(displayText(fields.year)) : undefined;
 		if (year !== undefined && !Number.isInteger(year)) throw new Error(`Invalid BibTeX year in ${id}`);
 		entries.push({
@@ -270,7 +274,8 @@ export function parseBibtex(raw: string): BibEntry[] {
 			abstract: text('abstract'),
 			summary: text('summary'),
 			codeUrl: text('code'),
-			featured: text('featured')?.toLowerCase() === 'yes',
+			featured: featuredField === 'yes' || hasFeaturedOrder,
+			featuredOrder: hasFeaturedOrder ? featuredOrder : undefined,
 			category: publicField === 'yes' || publicField === 'pub' ? 'Publication' : publicField === 'wp' ? 'Working Paper' : publicField === 'wip' ? 'Work in Progress' : 'Other',
 			keywords: text('keywords')?.split(',').map((keyword) => keyword.trim()).filter(Boolean) ?? [],
 		});
