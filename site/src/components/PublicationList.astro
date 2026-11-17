@@ -16,8 +16,6 @@ interface Props {
 const { papers, showTopics = false, filterByTopic = false } = Astro.props;
 const citationStyles = Object.entries(citationStyleLabels) as [CitationStyle, string][];
 const dialogId = `citation-dialog-${papers[0]?.id ?? "empty"}`;
-const abstractDialogId = `abstract-dialog-${papers[0]?.id ?? "empty"}`;
-const hasAbstracts = papers.some((paper) => paper.abstract);
 ---
 
 <div data-publication-citations>
@@ -27,7 +25,8 @@ const hasAbstracts = papers.some((paper) => paper.abstract);
   >
     {papers.map((paper, index) => {
       const abstractUrl = paper.abstract ? undefined : paper.abstractUrl;
-      const summary = paper.abstract || abstractUrl ? undefined : paper.summary;
+      const description = paper.abstract ?? (abstractUrl ? undefined : paper.summary);
+      const descriptionLabel = paper.abstract ? "Abstract" : "Summary";
       const citations = formatCitations(paper);
       const topics = showTopics ? getPublicationTopics(paper.keywords) : [];
 
@@ -136,33 +135,20 @@ const hasAbstracts = papers.some((paper) => paper.abstract);
                   </a>
                 )}
 
-                {paper.abstract && (
-                  <button
-                    type="button"
-                    class="publication-control action-link glass-control min-h-9 cursor-pointer px-2.5 text-xs font-semibold leading-none"
-                    data-abstract-trigger
-                    data-abstract-title={paper.title}
-                    data-abstract-text={paper.abstract}
-                    aria-label={`Abstract for ${paper.title}`}
-                    aria-haspopup="dialog"
-                    aria-controls={abstractDialogId}
-                  >
-                    <span class="i-mdi:text-box-outline !text-sm" aria-hidden="true"></span>
-                    <span>Abstract</span>
-                  </button>
-                )}
-
-                {summary && (
-                  <details class="group">
-                    <summary class="publication-control action-link glass-control min-h-9 cursor-pointer list-none px-2.5 text-xs font-semibold leading-none">
+                {description && (
+                  <details class="publication-description group min-w-0">
+                    <summary
+                      class="publication-control action-link glass-control min-h-9 cursor-pointer list-none px-2.5 text-xs font-semibold leading-none"
+                      aria-label={`${descriptionLabel} for ${paper.title}`}
+                    >
                       <span
                         class="i-mdi:chevron-down !text-sm transition-transform duration-200 group-open:rotate-180"
                         aria-hidden="true"
                       ></span>
-                      Summary
+                      {descriptionLabel}
                     </summary>
-                    <div class="body-copy mt-3 border-l-2 border-accent-300/80 py-1 pl-4 text-sm leading-relaxed dark:border-accent-700/80">
-                      <p>{summary}</p>
+                    <div class="body-copy mt-4 border-l-2 border-accent-300/80 py-1 pl-4 text-sm leading-7 dark:border-accent-700/80">
+                      <p>{description}</p>
                     </div>
                   </details>
                 )}
@@ -174,38 +160,12 @@ const hasAbstracts = papers.some((paper) => paper.abstract);
     })}
   </ol>
 
-  {hasAbstracts && (
-    <dialog
-      id={abstractDialogId}
-      aria-labelledby={`${abstractDialogId}-title`}
-      data-abstract-dialog
-      class="publication-dialog m-auto w-[min(42rem,calc(100%-2rem))] border-0 bg-transparent p-0 text-ink-900 dark:text-paper-100"
-    >
-      <div class="glass-popover flex max-h-[calc(100dvh-2rem)] flex-col overflow-hidden rounded-xl border border-paper-300/90 dark:border-ink-700">
-        <header class="flex shrink-0 items-start justify-between gap-5 border-b border-paper-300/80 px-5 py-4 dark:border-ink-700 sm:px-6">
-          <div class="min-w-0">
-            <h3 id={`${abstractDialogId}-title`} class="section-heading text-[1.5rem]">Abstract</h3>
-            <p data-abstract-paper-title class="mt-1.5 text-sm leading-6 text-ink-600 dark:text-paper-300"></p>
-          </div>
-          <form method="dialog" class="shrink-0">
-            <button type="submit" class="icon-button" aria-label="Close abstract">
-              <span class="i-ph-x-bold text-base" aria-hidden="true"></span>
-            </button>
-          </form>
-        </header>
-        <div class="min-h-0 overflow-y-auto px-5 py-4 sm:px-6">
-          <p data-abstract-body class="body-copy break-words text-sm leading-7"></p>
-        </div>
-      </div>
-    </dialog>
-  )}
-
   <dialog
     id={dialogId}
     aria-labelledby={`${dialogId}-title`}
     data-citation-dialog
     data-current-style="bibtex"
-    class="publication-dialog m-auto w-[min(42rem,calc(100%-2rem))] border-0 bg-transparent p-0 text-ink-900 dark:text-paper-100"
+    class="citation-dialog m-auto w-[min(42rem,calc(100%-2rem))] border-0 bg-transparent p-0 text-ink-900 dark:text-paper-100"
   >
     <div class="glass-popover max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-xl border border-paper-300/90 p-5 dark:border-ink-700 sm:p-6">
       <header class="flex items-start justify-between gap-5">
@@ -262,7 +222,12 @@ const hasAbstracts = papers.some((paper) => paper.abstract);
     background: var(--glass-control);
   }
 
-  .publication-dialog::backdrop {
+  .publication-description[open] {
+    flex-basis: 100%;
+    padding-bottom: 0.5rem;
+  }
+
+  .citation-dialog::backdrop {
     background: rgb(22 25 24 / 0.58);
   }
 </style>
@@ -279,33 +244,10 @@ const hasAbstracts = papers.some((paper) => paper.abstract);
     await navigator.clipboard.writeText(value);
   }
 
-  function setupAbstractDialog(container: HTMLElement) {
-    const dialog = container.querySelector<HTMLDialogElement>("[data-abstract-dialog]");
-    const title = dialog?.querySelector<HTMLElement>("[data-abstract-paper-title]");
-    const body = dialog?.querySelector<HTMLElement>("[data-abstract-body]");
-    if (!dialog || !title || !body) return;
-
-    let lastTrigger: HTMLButtonElement | null = null;
-    container.querySelectorAll<HTMLButtonElement>("[data-abstract-trigger]").forEach((button) => {
-      button.addEventListener("click", () => {
-        lastTrigger = button;
-        title.textContent = button.dataset.abstractTitle ?? "";
-        body.textContent = button.dataset.abstractText ?? "";
-        dialog.showModal();
-        body.parentElement?.scrollTo(0, 0);
-      });
-    });
-    dialog.addEventListener("click", (event) => {
-      if (event.target === dialog) dialog.close();
-    });
-    dialog.addEventListener("close", () => lastTrigger?.focus());
-  }
-
-  function setupPublicationDialogs() {
+  function setupCitationDialogs() {
     document.querySelectorAll<HTMLElement>("[data-publication-citations]").forEach((container) => {
       if (container.dataset.citationBound) return;
       container.dataset.citationBound = "true";
-      setupAbstractDialog(container);
 
       const dialog = container.querySelector<HTMLDialogElement>("[data-citation-dialog]");
       const title = dialog?.querySelector<HTMLElement>("[data-citation-paper-title]");
@@ -390,5 +332,5 @@ const hasAbstracts = papers.some((paper) => paper.abstract);
     });
   }
 
-  document.addEventListener("astro:page-load", setupPublicationDialogs);
+  document.addEventListener("astro:page-load", setupCitationDialogs);
 </script>
