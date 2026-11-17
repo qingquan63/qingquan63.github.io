@@ -8,10 +8,12 @@ export function getAllPapers(): BibEntry[] {
 }
 
 export function getFeaturedPapers(
-	limit = 3,
+	limit?: number,
 	papers: BibEntry[] = papersCache,
 ): BibEntry[] {
 	const publications = papers.filter((paper) => paper.category === 'Publication');
 	const featured = publications.filter((paper) => paper.featured);
-	return (featured.length > 0 ? featured : publications).slice(0, limit);
+	return featured.length > 0
+		? featured.slice(0, limit)
+		: publications.slice(0, limit ?? 3);
 }

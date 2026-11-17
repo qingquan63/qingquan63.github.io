@@ -33,7 +33,7 @@ const recentPosts = showPosts
 const primaryPost = recentPosts.find((post) => post.data.featured) ?? recentPosts[0];
 const secondaryPosts = recentPosts.filter((post) => post.id !== primaryPost?.id);
 
-const selectedPapers = showPublications ? getFeaturedPapers(3) : [];
+const selectedPapers = showPublications ? getFeaturedPapers() : [];
 
 const rawProfileImage = siteConfig.hero.profileImage.trim();
 const profileImageUrl = !rawProfileImage || /^https?:/i.test(rawProfileImage)
@@ -54,8 +54,6 @@ const about = {
   socialLinks: siteConfig.socialLinks,
 };
 
-// Get affiliations and research interests from config
-const affiliations = siteConfig.affiliations || [];
 const advisors = siteConfig.advisors;
 const researchInterests = siteConfig.researchInterests || [];
 const statusBadge = siteConfig.hero.statusBadge;
@@ -78,44 +76,6 @@ const profileAlt = siteConfig.hero.profileAlt || about.name;
             {about.name}
           </h1>
 
-          {affiliations.length > 0 && (
-            <div class="mt-4">
-              <div class="space-y-1">
-                {affiliations.map((aff) => (
-                  <p class="text-base leading-7 text-ink-600 dark:text-paper-300">
-                    {aff.role}
-                    {aff.department && <span>, {aff.department}</span>}
-                    {aff.url ? (
-                      <a
-                        href={aff.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="ml-1 font-semibold text-accent-700 underline decoration-accent-300 underline-offset-4 transition-colors hover:text-accent-900 dark:text-accent-300 dark:decoration-accent-700 dark:hover:text-accent-100"
-                      >
-                        {aff.institution}
-                      </a>
-                    ) : (
-                      <span>, {aff.institution}</span>
-                    )}
-                  </p>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {advisors.length > 0 && (
-            <p class="mt-2 text-base leading-7 text-ink-600 dark:text-paper-300">
-              <span class="font-medium">Ph.D. advisors</span>{": "}
-              {advisors.map((advisor, index) => (
-                <>
-                  {index > 0 && ", "}
-                  <a href={advisor.href} class="text-accent-700 underline underline-offset-4 dark:text-accent-300">
-                    {advisor.label}
-                  </a>
-                </>
-              ))}
-            </p>
-          )}
         </div>
 
         {showProfileAside && (
@@ -148,7 +108,25 @@ const profileAlt = siteConfig.hero.profileAlt || about.name;
             {headline}
           </p>
 
-		  <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+          <p class="mt-5 max-w-[65ch] text-[1.0625rem] leading-7 text-ink-700 dark:text-paper-300">
+            {about.bio}
+          </p>
+
+          {advisors.length > 0 && (
+            <p class="mt-3 text-base leading-7 text-ink-600 dark:text-paper-300">
+              <span class="font-medium">Ph.D. advisors</span>{": "}
+              {advisors.map((advisor, index) => (
+                <>
+                  {index > 0 && ", "}
+                  <a href={advisor.href} class="text-accent-700 underline underline-offset-4 dark:text-accent-300">
+                    {advisor.label}
+                  </a>
+                </>
+              ))}
+            </p>
+          )}
+
+          <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
             {showPublications && selectedPapers.length > 0 && (
               <a href="#selected-publications" class="action-link px-0">
                 Selected work
@@ -171,10 +149,6 @@ const profileAlt = siteConfig.hero.profileAlt || about.name;
               );
             })}
           </div>
-
-		  <p class="mt-5 max-w-[65ch] text-[1.0625rem] leading-7 text-ink-700 dark:text-paper-300">
-			{about.bio}
-		  </p>
 
           {researchInterests.length > 0 && (
             <div class="mt-6 border-t border-paper-300/80 pt-4 dark:border-ink-700/80" aria-label="Research interests">

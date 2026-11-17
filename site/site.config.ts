@@ -8,7 +8,7 @@ export const siteConfig = defineSiteConfig({
   hero: {
     headline: "Fair and trustworthy AI",
     subheadline:
-      "I use multi-objective optimization to study how learning systems can balance predictive performance with different definitions of group fairness. I also investigate how gender bias emerges in interactions with large language models, including in game-playing settings. My work in game AI explores how to generate diverse game levels and use interactive tools to make optimization easier to understand.",
+      "I am a third-year Ph.D. student in the Department of Computer Science and Engineering at Southern University of Science and Technology (SUSTech). My research focuses on fair machine learning and responsible AI, particularly group fairness and bias in large language models. I also use multi-objective optimization and learning to generate diverse game content. I earned my master's degree in Computer Science and Technology from SUSTech and my bachelor's degree in Intelligent Science and Technology from Xidian University.",
     profileImage: "",
   },
   description:
@@ -16,6 +16,7 @@ export const siteConfig = defineSiteConfig({
   affiliations: [
     {
       role: "Ph.D. Student",
+      department: "Department of Computer Science and Engineering",
       institution: "Southern University of Science and Technology",
     },
   ],
@@ -25,10 +26,9 @@ export const siteConfig = defineSiteConfig({
     { label: "Xin Yao", href: "https://cse.sustech.edu.cn/faculty/~xiny/" },
   ],
   researchInterests: [
-    "Fair Machine Learning",
-    "Responsible AI",
-    "Multi-objective Optimization",
+    "Fair Machine Learning & Responsible AI",
     "AI in Games",
+    "Multi-objective Optimization/Learning",
   ],
   navLinks: [
     { href: "/about", label: "About" },
@@ -40,7 +40,7 @@ export const siteConfig = defineSiteConfig({
     { label: "GitHub", href: "https://github.com/qingquan63", icon: "i-mdi:github" },
   ],
   pageTitles: {
-    about: { description: "Research appointments, education, and academic service." },
+    about: { description: "Education, research experience, and awards." },
     researches: { description: "Research on machine learning fairness, multi-objective optimization, and AI in games." },
     projects: { description: "Research tools for fairness-aware learning and procedural game content generation." },
   },

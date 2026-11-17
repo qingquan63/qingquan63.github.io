@@ -14,18 +14,6 @@ education:
     institution: Xidian University
     year: Aug 2015 – Jun 2019
 
-service:
-  - role: Peer reviewer
-    organization: Knowledge-Based Systems
-  - role: Peer reviewer
-    organization: IEEE Transactions on Evolutionary Computation
-  - role: Peer reviewer
-    organization: IEEE Transactions on Artificial Intelligence
-  - role: Volunteer
-    organization: IEEE Conference on Games
-    period: "2022"
-  - IEEE Volunteering Ambassador
-
 sections:
   - title: Awards
     icon: i-mdi:trophy-award
