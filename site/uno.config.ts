@@ -181,12 +181,12 @@ export default defineConfig({
 	},
 	theme: {
 		colors: {
-			// Warm paper surfaces
+			// Cool paper surfaces
 			paper: {
-				50: '#fbfaf6',
-				100: '#f5f1e8',
-				200: '#ebe4d8',
-				300: '#ddd2c2',
+				50: '#f3f5f7',
+				100: '#eef1f4',
+				200: '#e5e9ee',
+				300: '#d9e0e6',
 				400: '#c1b3a0',
 				500: '#aca08e',
 			},

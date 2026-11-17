@@ -251,14 +251,15 @@ function isActiveNav(href: string): boolean {
 
       :root {
         color-scheme: light;
-		--glass-chrome: rgb(251 250 246 / 0.9);
+		--page-background: #f3f5f7;
+		--glass-chrome: rgb(243 245 247 / 0.9);
 		--glass-panel: rgb(255 255 255 / 0.64);
-        --glass-popover: rgb(251 250 246 / 0.98);
+        --glass-popover: rgb(243 245 247 / 0.98);
 		--glass-control: rgb(255 255 255 / 0.56);
 		--glass-control-hover: rgb(238 245 247 / 0.92);
 		--glass-control-pressed: rgb(220 235 239 / 0.92);
 		--glass-active: rgb(220 235 239 / 0.78);
-		--glass-border: rgb(221 210 194 / 0.9);
+		--glass-border: rgb(217 224 230 / 0.9);
         --glass-border-accent: rgb(73 125 144 / 0.38);
 		--glass-highlight: rgb(255 255 255 / 0.64);
 		--glass-control-border: rgb(47 83 99 / 0.16);
@@ -288,7 +289,7 @@ function isActiveNav(href: string): boolean {
       }
 
       html {
-        background: #fbfaf6;
+        background: var(--page-background);
         scroll-behavior: smooth;
         scroll-padding-top: 6.5rem;
       }
@@ -300,7 +301,6 @@ function isActiveNav(href: string): boolean {
       body {
         margin: 0;
         background-attachment: fixed;
-		background-image: radial-gradient(circle at 88% -8%, rgb(103 154 170 / 0.1), transparent 32rem);
         font-synthesis: none;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
@@ -578,7 +578,7 @@ function isActiveNav(href: string): boolean {
         .glass-panel,
         .glass-popover,
         :is(.glass-control, .icon-button, .filter-btn) {
-          background: #fbfaf6;
+          background: var(--page-background);
         }
 
         html.dark .liquid-glass-bar,
@@ -596,7 +596,7 @@ function isActiveNav(href: string): boolean {
         :is(.glass-control, .icon-button, .filter-btn) {
           -webkit-backdrop-filter: none;
           backdrop-filter: none;
-          background: #fbfaf6;
+          background: var(--page-background);
         }
 
         html.dark .liquid-glass-bar,
