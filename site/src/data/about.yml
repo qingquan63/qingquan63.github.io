@@ -1,0 +1,48 @@
+experience:
+  - role: Research Assistant
+    organization: Southern University of Science and Technology
+    period: Jun 2022 – Jun 2024
+
+education:
+  - degree: Ph.D. in Computer Science and Technology
+    institution: Southern University of Science and Technology
+    year: Sep 2024 – present
+  - degree: Master's degree in Computer Science and Technology
+    institution: Southern University of Science and Technology
+    year: Sep 2019 – Jun 2022
+  - degree: Bachelor's degree in Intelligent Science and Technology
+    institution: Xidian University
+    year: Aug 2015 – Jun 2019
+
+service:
+  - role: Peer reviewer
+    organization: Knowledge-Based Systems
+  - role: Peer reviewer
+    organization: IEEE Transactions on Evolutionary Computation
+  - role: Peer reviewer
+    organization: IEEE Transactions on Artificial Intelligence
+  - role: Volunteer
+    organization: IEEE Conference on Games
+    period: "2022"
+  - IEEE Volunteering Ambassador
+
+sections:
+  - title: Awards
+    icon: i-mdi:trophy-award
+    items:
+      - title: Gold Medal
+        subtitle: Silicon Valley International Invention Festival
+        date: 2026
+        description: "Co-recipient for PCG.ME: Infinite Game Co-Creation Platform with Behaviour-Adaptive AI."
+      - title: Excellent Science & Technology Academic Paper
+        subtitle: Shenzhen Association for Science and Technology
+        date: 2023
+        description: For “Mitigating Unfairness via Evolutionary Multiobjective Ensemble Learning.”
+  - title: Teaching
+    items:
+      - title: Advanced Artificial Intelligence
+        subtitle: Graduate course, Southern University of Science and Technology
+        date: 2020 and 2021
+      - title: Computer Security
+        subtitle: Undergraduate course, Southern University of Science and Technology
+        date: 2019–2020
