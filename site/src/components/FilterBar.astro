@@ -3,7 +3,8 @@ interface FilterItem {
   filter: string;
   label: string;
   count: number;
-  icon: string;
+  icon?: string;
+  topic?: boolean;
 }
 
 interface Props {
@@ -40,12 +41,13 @@ const shouldRender = visibleItems.length > 1;
           <button
             type="button"
             data-filter={item.filter}
+            data-research-topic={item.topic ? item.filter : undefined}
             data-active="false"
             aria-pressed="false"
             class="filter-btn inline-flex h-10 min-h-10 cursor-pointer items-center gap-2 rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all duration-150 focus-visible:ring-2 focus-visible:ring-accent-500"
           >
-            <span data-filter-icon class={`${item.icon} text-base text-ink-500 dark:text-paper-400`} aria-hidden="true"></span>
-            <span data-filter-label class="font-semibold capitalize text-ink-700 dark:text-paper-300">{item.label}</span>
+            {item.icon && <span data-filter-icon class={`${item.icon} text-base text-ink-500 dark:text-paper-400`} aria-hidden="true"></span>}
+            <span data-filter-label class:list={["font-semibold text-ink-700 dark:text-paper-300", !item.topic && "capitalize"]}>{item.label}</span>
             <span data-filter-count class="font-mono text-xs text-ink-500 dark:text-paper-400">{item.count}</span>
           </button>
         ))

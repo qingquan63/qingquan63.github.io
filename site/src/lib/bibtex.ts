@@ -13,6 +13,7 @@ export interface BibEntry {
 	authorParts?: BibAuthor[];
 	rawBibtex?: string;
 	year?: number;
+	date?: string;
 	venue?: string;
 	url?: string;
 	doi?: string;
@@ -20,6 +21,7 @@ export interface BibEntry {
 	number?: string;
 	pages?: string;
 	abstract?: string;
+	abstractUrl?: string;
 	summary?: string;
 	codeUrl?: string;
 	featured?: boolean;
@@ -265,6 +267,7 @@ export function parseBibtex(raw: string): BibEntry[] {
 			authorParts,
 			rawBibtex: [...definitions, source].join('\n'),
 			year,
+			date: text('date'),
 			venue: text('journal') ?? text('booktitle'),
 			url: text('url'),
 			doi: text('doi'),
@@ -272,6 +275,7 @@ export function parseBibtex(raw: string): BibEntry[] {
 			number: text('number'),
 			pages: text('pages'),
 			abstract: text('abstract'),
+			abstractUrl: text('abstracturl'),
 			summary: text('summary'),
 			codeUrl: text('code'),
 			featured: featuredField === 'yes' || hasFeaturedOrder,
@@ -280,5 +284,8 @@ export function parseBibtex(raw: string): BibEntry[] {
 			keywords: text('keywords')?.split(',').map((keyword) => keyword.trim()).filter(Boolean) ?? [],
 		});
 	}
-	return entries.sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
+	return entries.sort((a, b) =>
+		(b.year ?? 0) - (a.year ?? 0) ||
+		(b.date ?? '').localeCompare(a.date ?? ''),
+	);
 }

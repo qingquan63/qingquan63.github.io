@@ -21,3 +21,9 @@ export const researchTopics = [
     source: "https://isaiah-berlin.wolfson.ox.ac.uk/sites/default/files/inline-files/bib196%20-%20Pursuit%20of%20the%20Ideal_3.pdf",
   },
 ] as const;
+
+export const publicationTopics = [...researchTopics.map(({ tag }) => tag), "optimization"];
+
+export function getPublicationTopics(keywords: string[]): string[] {
+  return keywords.filter((keyword) => publicationTopics.includes(keyword));
+}

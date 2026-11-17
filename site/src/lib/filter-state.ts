@@ -26,5 +26,5 @@ export function isFilterSectionVisible(
 	activeFilter: string,
 	sectionFilter: string | undefined,
 ): boolean {
-	return activeFilter === "all" || sectionFilter === activeFilter;
+	return activeFilter === "all" || Boolean(sectionFilter?.split(/\s+/).includes(activeFilter));
 }

@@ -2,9 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import FilterBar from "../components/FilterBar.astro";
 import PublicationList from "../components/PublicationList.astro";
+import { publicationTopics } from "../data/research-topics";
 import { getAllPapers } from "../lib/papers";
 import { slugifySectionId } from "../lib/section-id";
 import siteConfig from "../side.config";
+import "../styles/research-topics.css";
 
 const papers = getAllPapers();
 const categoryOrder = [
@@ -43,6 +45,13 @@ const categoryIcons: Record<string, string> = {
 
 // Count total papers
 const totalPapers = papers.length;
+const topicFilters = publicationTopics.map((tag) => ({
+  filter: tag,
+  label: tag,
+  count: papers.filter((paper) => paper.keywords.includes(tag)).length,
+  topic: true,
+}));
+const filterByTopic = grouped.size === 1 && topicFilters.filter(({ count }) => count > 0).length > 1;
 const pageTitle = siteConfig.pageTitles.researches.title || "Publications";
 const pageDescription = siteConfig.pageTitles.researches.description ||
   "Peer-reviewed publications, workshop papers, and essays focusing on the flow of learning signals across scholarly and civic platforms.";
@@ -61,7 +70,7 @@ const pageDescription = siteConfig.pageTitles.researches.description ||
 	  <FilterBar
 		total={totalPapers}
 		allIcon="i-mdi:file-document-multiple"
-		items={orderedCategories.map((category) => ({
+		items={filterByTopic ? topicFilters : orderedCategories.map((category) => ({
 		  filter: slugifySectionId(category),
 		  label: category.toLowerCase(),
 		  count: grouped.get(category)?.length || 0,
@@ -84,16 +93,18 @@ const pageDescription = siteConfig.pageTitles.researches.description ||
             <section
               id={categorySlug}
               class="content-section paper-section scroll-mt-20 space-y-4"
-              data-filter-section={categorySlug}
+              data-filter-section={filterByTopic ? undefined : categorySlug}
             >
-              <header class="flex items-end justify-between gap-4 border-b border-paper-300/90 pb-3 dark:border-ink-700">
-				<h2 class="section-heading">{category}</h2>
-				<p class="shrink-0 font-mono text-xs font-semibold tabular-nums text-ink-500 dark:text-paper-400">
-                  {categoryPapers.length} {categoryPapers.length === 1 ? "entry" : "entries"}
-                </p>
-              </header>
+              {!filterByTopic && (
+                <header class="flex items-end justify-between gap-4 border-b border-paper-300/90 pb-3 dark:border-ink-700">
+                  <h2 class="section-heading">{category}</h2>
+                  <p class="shrink-0 font-mono text-xs font-semibold tabular-nums text-ink-500 dark:text-paper-400">
+                    {categoryPapers.length} {categoryPapers.length === 1 ? "entry" : "entries"}
+                  </p>
+                </header>
+              )}
 
-              <PublicationList papers={categoryPapers} />
+              <PublicationList papers={categoryPapers} showTopics filterByTopic={filterByTopic} />
             </section>
           );
         })

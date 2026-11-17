@@ -78,13 +78,16 @@ describe("parseBibtex", () => {
 		expect(entries[0].url).toBe("https://example.com/paper");
 	});
 
-	test("sorts entries by year descending", () => {
+	test("sorts entries from newest to oldest, using dates within each year", () => {
 		const entries = parseBibtex(`
       @misc{old, title = {Old}, year = {2020}}
-      @misc{new, title = {New}, year = {2026}}
+      @misc{yearOnly, title = {Year only}, year = {2026}}
+      @misc{spring, title = {Spring}, year = {2026}, date = {2026-03}}
+      @misc{sameMonth, title = {Same month}, year = {2026}, date = {2026-07}}
+      @misc{summer, title = {Summer}, year = {2026}, date = {2026-07-31}}
     `);
 
-		expect(entries.map((entry) => entry.id)).toEqual(["new", "old"]);
+		expect(entries.map((entry) => entry.id)).toEqual(["summer", "sameMonth", "spring", "yearOnly", "old"]);
 	});
 
 	test("treats an omitted public field as other", () => {
