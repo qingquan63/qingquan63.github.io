@@ -7,7 +7,7 @@ export const siteConfig = defineSiteConfig({
   siteUrl: "https://qingquan63.github.io/",
   ogImage: "/favicon.svg",
   hero: {
-    headline: "Fair and trustworthy AI",
+    headline: "",
     subheadline:
       "I am a third-year Ph.D. student in the Department of Computer Science and Engineering at Southern University of Science and Technology (SUSTech). My research focuses on fair machine learning and responsible AI, particularly group fairness and bias in large language models. I also use multi-objective optimization and learning to generate diverse game content. I earned my master's degree in Computer Science and Technology from SUSTech and my bachelor's degree in Intelligent Science and Technology from Xidian University.",
     profileImage: "/profile.jpg",

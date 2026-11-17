@@ -59,7 +59,7 @@ const about = {
 const advisors = siteConfig.advisors;
 const statusBadge = siteConfig.hero.statusBadge;
 const showProfileAside = Boolean(about.avatar || statusBadge);
-const headline = siteConfig.hero.headline || about.name;
+const headline = siteConfig.hero.headline.trim();
 const profileAlt = siteConfig.hero.profileAlt || about.name;
 ---
 
@@ -105,17 +105,19 @@ const profileAlt = siteConfig.hero.profileAlt || about.name;
         )}
 
         <div class="col-span-full row-start-2 min-w-0 lg:col-span-1 lg:col-start-1">
-          <p class="max-w-[38rem] font-heading text-[1.5rem] font-medium leading-[1.25] tracking-[-0.015em] text-ink-900 dark:text-paper-100 sm:text-[1.75rem]">
-            {headline}
-          </p>
+          {headline && (
+            <p class="max-w-[38rem] font-heading text-[1.5rem] font-medium leading-[1.25] tracking-[-0.015em] text-ink-900 dark:text-paper-100 sm:text-[1.75rem]">
+              {headline}
+            </p>
+          )}
 
-          <p class="mt-5 max-w-[65ch] text-[1.0625rem] leading-7 text-ink-700 dark:text-paper-300">
+          <p class:list={["max-w-[65ch] text-[1.0625rem] leading-7 text-ink-700 dark:text-paper-300", headline && "mt-5"]}>
             {about.bio}
           </p>
 
           {advisors.length > 0 && (
             <p class="mt-3 text-base leading-7 text-ink-600 dark:text-paper-300">
-              <span class="font-medium">Ph.D. advisors</span>{": "}
+              <span class="font-medium">Ph.D. co-advisors</span>{": "}
               {advisors.map((advisor, index) => (
                 <>
                   {index > 0 && ", "}
