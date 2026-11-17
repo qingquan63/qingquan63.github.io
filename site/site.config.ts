@@ -41,7 +41,7 @@ export const siteConfig = defineSiteConfig({
   pageTitles: {
     about: { description: "Education, research experience, and awards." },
     researches: { description: "Research on fair machine learning, multi-objective optimization, and AI in games." },
-    projects: { description: "Research tools for fairness-aware learning and procedural game content generation." },
+    projects: { description: "Research platforms and code for fair machine learning, AI in games, and multi-objective optimization." },
   },
   homeBlocks: {
     showcase: { enabled: false },

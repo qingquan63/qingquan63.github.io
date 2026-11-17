@@ -2,10 +2,11 @@
 title: FaMOEL
 summary: Code for fairness-aware multi-objective evolutionary learning.
 status: unspecified
+category: code
 period: "2025"
 order: 1
 links:
-  - label: Code
+  - label: GitHub
     href: https://github.com/qingquan63/FaMOEL
   - label: Paper
     href: https://doi.org/10.1109/TEVC.2024.3430824

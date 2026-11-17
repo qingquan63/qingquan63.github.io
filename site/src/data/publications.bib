@@ -11,11 +11,29 @@
   date = {2026-07},
   doi = {10.1109/TEVC.2026.3712751},
   url = {https://ieeexplore.ieee.org/document/11606513/},
-  abstracturl = {https://ieeexplore.ieee.org/document/11606513/},
+  abstracturl = {https://ieeexplore.ieee.org/abstract/document/11606513},
   public = {yes},
   featured = {3},
   keywords = {fair},
-  summary = {This study uses co-evolution to improve ensembles and their training data together, with the aim of reducing bias against minority groups.},
+  abstract = {
+    Fairness is a crucial consideration in machine learning, yet class imbalance poses significant challenges to
+    building fair models. While ensemble learning is widely used in addressing fairness under class imbalance,
+    current methods face two critical limitations. First, the diversity among base models is not explicitly
+    considered during training, which weakens the complementarity among base models. Second, because base models
+    are updated on essentially the same data distribution, they may not encounter enough biased or challenging
+    cases, so the training signal cannot focus on where unfair errors occur most frequently. To address these
+    limitations, we propose fairer ensembles via co-evolution (FairCoEv), which co-evolves base models and data
+    distribution. FairCoEv adaptively evolves the data distribution to sample more from regions that trigger
+    unfair or incorrect predictions, ensuring the ensemble keeps learning from the most informative cases.
+    Simultaneously, FairCoEv evolves base models by explicitly incorporating a diversity regularisation term
+    based on negative correlation learning to foster complementarity alongside accuracy and fairness
+    optimisation. Extensive experiments on 30 datasets with varying imbalance degrees, covering both binary and
+    multi-class tasks as well as settings with single and multiple sensitive attributes, show that FairCoEv
+    significantly improves fairness with only a minor loss in accuracy, achieving a better fairness–accuracy
+    trade-off than state-of-the-art methods. Notably, on the unseen fairness metric overall accuracy equality,
+    which is not directly optimised during training, our method achieves the best performance, ranking first
+    among all compared methods.
+  },
 }
 
 @article{yuan2026mopcgrl18,
@@ -32,7 +50,23 @@
   abstracturl = {https://www.um.edu.mt/library/oar/handle/123456789/147356},
   public = {yes},
   keywords = {game, multi-objective},
-  summary = {Multi-objective reinforcement learning generates game levels while accounting for competing measures of content quality.},
+  abstract = {
+    Online content generation enables automatic and adaptive creation of diverse and playable game content for
+    maximizing player experience or testing Artificial Intelligence (AI) algorithms. Multiple diversity metrics
+    have been formulated on different content facets in the literature, while some of them conflict with one
+    another. Existing work addresses this multi-dimensional diversity nature by converting those metrics into
+    one term that is further used to direct the training of content generators. However, each generator is
+    trained to meet the preference specified by the weights and fails to fully interpret the relationships among
+    these metrics or provide different trade-offs. This paper proposes a multi-objective procedural content
+    generation via reinforcement learning to train a set of generators that create diverse game content in an
+    online manner while balancing the trade-off between multiple diversity metrics with playability as a
+    constraint. Our framework is compared with state-of-the-art approaches on the commonly used Mario-AI
+    benchmark. Results show that our framework is capable of increasing the diversity of the generator
+    distribution while accelerating the convergence during the early stages of model training. Our approach
+    enables researchers, designers, and practitioners to gain a better understanding of the relationship among
+    conflicting diversity metrics, allowing them to generate content more efficiently and accurately tailored to
+    specific needs.
+  },
 }
 
 @article{tong2025online17,
@@ -49,7 +83,22 @@
   abstracturl = {https://jcta.ijournals.cn/cta_cn/ch/reader/view_abstract.aspx?file_no=CCTA250126#EnAbstract},
   public = {yes},
   keywords = {game, multi-objective},
-  summary = {Multi-objective ensemble pruning helps generate varied game content online.},
+  abstract = {
+    Online diverse content generation is one of the emergent research directions in the field of procedural
+    content generation in recent years. It can not only meet users’ different preferences and enhance user
+    experience, but also provide a large amount of scenarios and problems for training and testing artificial
+    intelligence algorithms. Recent research proposed online diverse content generation methods based on
+    negatively correlated ensemble reinforcement learning, such methods can not effectively meet the specific
+    preferences of different users. Furthermore, training and deploying individual learning models requires
+    significant computational resources. To address those two issues, this paper proposes an online content
+    generation approach based on multi-objective ensemble pruning, built upon the negatively correlated ensemble
+    reinforcement learning framework. This approach searches for the weights for integrating individual learning
+    models through an efficient multi-objective optimization algorithm, so that the obtained ensemble model can
+    not only effectively match user preferences, but also offer a Pareto set that exhibits a tradeoff between
+    model performance and computational resource consumption. This approach matches user preferences by
+    adjusting the weights of individual learning models instead of retraining models, thereby reducing the
+    computational resource consumption.
+  },
 }
 
 @article{zhang2025ethical16,
@@ -64,7 +113,19 @@
   public = {yes},
   featured = {5},
   keywords = {game, fair},
-  summary = {This study investigates gender bias in game-playing interactions with large language models and considers how it can be evaluated.},
+  abstract = {
+    Large language models (LLMs) have demonstrated tremendous potential in game playing, while little attention
+    has been paid to their ethical implications in those contexts. This work investigates and analyses the
+    ethical considerations of applying LLMs in game playing, using Werewolf, also known as Mafia, as a case
+    study. Gender bias, which affects game fairness and player experience, has been observed from the behaviour
+    of LLMs. Some roles, such as the Guard and Werewolf, are more sensitive than others to gender information,
+    presented as a higher degree of behavioural change. We further examine scenarios in which gender information
+    is implicitly conveyed through names, revealing that LLMs still exhibit discriminatory tendencies even in
+    the absence of explicit gender labels. This research showcases the importance of developing fair and ethical
+    LLMs. Beyond our research findings, we discuss the challenges and opportunities that lie ahead in this
+    field, emphasising the need for diving deeper into the ethical implications of LLMs in gaming and other
+    interactive domains.
+  },
 }
 
 @article{zhang2026expanding15,
@@ -82,7 +143,22 @@
   public = {yes},
   featured = {6},
   keywords = {game, multi-objective},
-  summary = {This work uses multi-objective evolutionary learning to generate a more diverse range of game levels.},
+  abstract = {
+    In recent years, the generation of diverse game levels has gained increasing interest, contributing to a
+    richer and more engaging gaming experience. A number of level diversity metrics have been proposed in
+    literature, which are naturally multi-dimensional, leading to conflicted, complementary, or both
+    relationships among these dimensions. However, existing level generation approaches often fail to
+    comprehensively assess diversity across those dimensions. This paper aims to expand horizons of level
+    diversity by considering multi-dimensional diversity when training generative models. We formulate the model
+    training as a multi-objective learning problem, where each diversity metric is treated as a distinct
+    objective. Furthermore, a multi-objective evolutionary learning framework that optimises multiple diversity
+    metrics simultaneously throughout the model training process is proposed. Our case study on the commonly
+    used benchmark Super Mario Bros. demonstrates that our proposed framework can enhance multi-dimensional
+    diversity and identify a Pareto front of generative models, which provides a range of tradeoffs among
+    playability and two representative diversity metrics, including a content-based one and a player-centered
+    one. Such capability enables decision-makers to make informed choices when selecting generators
+    accommodating a variety of scenarios and the diverse needs of players and designers.
+  },
 }
 
 @inproceedings{zhang2024interpreting14,
@@ -95,7 +171,17 @@
   abstracturl = {https://arxiv.org/abs/2406.10663},
   public = {yes},
   keywords = {game, multi-objective},
-  summary = {An interactive Sokoban level generator shows how multi-objective evolutionary algorithms explore competing goals.},
+  abstract = {
+    This paper presents an interactive platform to interpret multi-objective evolutionary algorithms. Sokoban
+    level generation is selected as a showcase for its widespread use in procedural content generation. By
+    balancing the emptiness and spatial diversity of Sokoban levels, we illustrate the improved two-archive
+    algorithm, Two Arch2, a well-known multi-objective evolutionary algorithm. Our web-based platform integrates
+    Two Arch2 into an interface that visually and interactively demonstrates the evolutionary process in
+    real-time. Designed to bridge theoretical optimisation strategies with practical game generation
+    applications, the interface is also accessible to both researchers and beginners to multi-objective
+    evolutionary algorithms or procedural content generation on a website. Through dynamic visualisations and
+    interactive gameplay demonstrations, this web-based platform also has potential as an educational tool.
+  },
 }
 
 @article{zhang2025fairnessaware13,
@@ -113,7 +199,22 @@
   public = {yes},
   featured = {2},
   keywords = {fair, multi-objective},
-  summary = {The method treats predictive performance and multiple fairness criteria as optimization objectives, so progress under one fairness definition can be examined alongside the others.},
+  abstract = {
+    Multiobjective evolutionary learning (MOEL) has demonstrated its advantages of training fairer machine
+    learning models considering a predefined set of conflicting objectives, including accuracy and different
+    fairness measures. Recent works propose to construct a representative subset of fairness measures as
+    optimisation objectives of MOEL throughout model training. However, the determination of a representative
+    measure set relies on dataset, prior knowledge and requires substantial computational costs. What’s more,
+    those representative measures may differ across different model training processes. Instead of using a
+    static predefined set determined before model training, this paper proposes to dynamically and adaptively
+    determine a representative measure set online during model training. The dynamically determined
+    representative set is then used as optimising objectives of the MOEL framework and can vary with time.
+    Extensive experimental results on 12 well-known benchmark datasets demonstrate that our proposed framework
+    achieves outstanding performance compared to state-of-the-art approaches for mitigating unfairness in terms
+    of accuracy as well as 25 fairness measures although only a few of them were dynamically selected and used
+    as optimisation objectives. The results indicate the importance of setting optimisation objectives
+    dynamically during training.
+  },
   code = {https://github.com/qingquan63/FaMOEL},
 }
 
@@ -131,7 +232,18 @@
   abstracturl = {https://arxiv.org/abs/2404.15192},
   public = {yes},
   keywords = {game},
-  summary = {This study examines different ways to measure diversity across game scenarios.},
+  abstract = {
+    This paper comprehensively reviews the metrics for measuring the diversity of game scenarios, spotlighting
+    the innovative use of procedural content generation and other fields as cornerstones for enriching player
+    experiences through diverse game scenarios. By traversing a wide array of disciplines, from affective
+    modeling and multiagent systems to psychological studies, our research underscores the importance of diverse
+    game scenarios in gameplay and education. Through a taxonomy of diversity metrics and evaluation methods, we
+    aim to bridge the current gaps in literature and practice, offering insights into effective strategies for
+    measuring and integrating diversity in game scenarios. Our analysis highlights the necessity for a unified
+    taxonomy to aid developers and researchers in crafting more engaging and varied game worlds. This survey not
+    only charts a path for future research in diverse game scenarios but also serves as a handbook for industry
+    practitioners seeking to leverage diversity as a key component of game design and development.
+  },
 }
 
 @inproceedings{li2024rolling11,
@@ -146,7 +258,22 @@
   abstracturl = {https://link.springer.com/chapter/10.1007/978-3-031-57808-3_19#Abs1},
   public = {yes},
   keywords = {game},
-  summary = {The study uses competitive Snake to explore rolling-horizon co-evolution for game-playing agents.},
+  abstract = {
+    The Snake game, a classic in the gaming world, gains new dimensions with the Snake AI competition, where two
+    players controlled by AI algorithms can now compete simultaneously in the same game session. This
+    competition holds significance in advancing our understanding of artificial intelligence (AI) algorithms. In
+    the 2020 and 2021 Snake AI competitions, popular algorithms, using graph-based search or heuristic
+    strategies, demonstrate competitive performance, such as the A* algorithm, Monte Carlo Tree Search (MCTS).
+    Contrary to these heuristic approaches, the Rolling Horizon Co-evolution Algorithm (RHCA), characterised by
+    its core principles of rolling horizon evaluation and co-evolution, maintains two populations, one for each
+    player, to co-evolve with each other without reliance on heuristics. RHCA has been verified its
+    effectiveness in a two-player spaceship game. In this paper, we extend the RHCA application to the
+    two-player Snake AI game, comparing it with other state-of-the-art methods. Additionally, we introduce
+    various obstacles to create different complex scenarios, ensuring a comprehensive analysis. Experimental
+    results reveal RHCA’s superior and stable performance, especially in resource-constrained and complex
+    scenarios. Furthermore, an analysis of RHCA’s behaviours across maps with diverse obstacle scenarios
+    highlights its ability to make intelligent decisions in competing with state-of-the-art methods.
+  },
 }
 
 @article{yuan2024fairerml10,
@@ -164,7 +291,21 @@
   public = {yes},
   featured = {4},
   keywords = {fair, multi-objective},
-  summary = {FairerML provides tools to analyse, visualise, and mitigate bias in machine learning.},
+  abstract = {
+    Given the growing concerns about bias in machine learning, dozens of metrics have been proposed to measure
+    the fairness of machine learning. Several platforms have also been developed to compute and illustrate
+    fairness metrics on platform-provided data. However, most platforms do not provide a user-friendly interface
+    for users to upload and evaluate their own data or machine learning models. Moreover, no known platform is
+    capable of training machine learning models, while considering their fairness and accuracy simultaneously.
+    Motivated by the above insufficiency, this work develops FairerML, an extensible platform for analysing,
+    visualising, and mitigating biases in machine learning. Three core functionalities are implemented in
+    FairerML: fairness analysis of user-uploaded datasets, fairness analysis of user-uploaded machine learning
+    models, and the training of a set of Pareto models considering accuracy and fairness metrics simultaneously
+    by using multiobjective learning. The clear visualisation and description of the fairness analysis and the
+    configurable model training process of FairerML make it easy for training fairer machine learning models and
+    for educational purposes. In addition, new fairness metrics and training algorithms can be easily integrated
+    into FairerML thanks to its extendability.
+  },
 }
 
 @article{zhang2023efficient9,
@@ -181,6 +322,26 @@
   public = {yes},
   featured = {8},
   keywords = {multi-objective},
+  abstract = {
+    During the past two decades, numerous many-objective optimization evolutionary algorithms (MaOEAs) have been
+    proposed to tackle the challenges traditional multi-objective evolutionary algorithms face, that is to deal
+    with abundant non-dominated solutions and low selection pressure. Specifically, a series of sophisticated
+    selection strategies have been adopted, some of which need additional pre-defined parameters or a
+    significant amount of extra computation time, which retards their applications in real life. In this paper,
+    we propose an efficient indicator-based MaOEA with few parameters, SDE+-MOEA, that uses an adaptive
+    combination of commonly used selection methods to improve search efficiency based on SDE+. SDE+ addresses
+    situations where SDE cannot distinguish individuals with the same SDE values. The adaptive selection method
+    dynamically selects between one-time and iterative selection methods at different stages of evolution to
+    improve the search efficiency. Furthermore, apart from the four parameters for generating offspring, our
+    proposed SDE+-MOEA does not introduce additional parameters. We conduct experimental studies to compare
+    SDE+-MOEA with 11 state-of-the-art algorithms, including 2REA, ISDE+, θ-DEA, LMPFE, CVEA3, SRA, MOEA/DD,
+    IBEA, Two_Arch2, NSGA-III, and SPEA2SDE using four representative performance indicators (HV, SP, PD and GD)
+    on MaF benchmark with 5, 8, 10, and 15 objectives. Experimental studies demonstrate that, compared to the
+    algorithms, SDE+-MOEA achieves better HV and competitive convergence and uniformity performance, while
+    requiring few parameters. It means that SDE+-MOEA can find a solution set with better convergence and
+    uniformity to help decision-makers understand the solved problems. Furthermore, SDE+-MOEA loses little
+    spreadability since a better convergence often leads to a worse spread.
+  },
 }
 
 @inproceedings{gui2023fairer8,
@@ -195,6 +356,22 @@
   abstracturl = {https://ieeexplore.ieee.org/document/10191821/},
   public = {yes},
   keywords = {fair, multi-objective},
+  abstract = {
+    With growing concerns about the unwanted bias or discrimination in machine learning, a number of
+    fairness-aware machine learning algorithms have been developed to mitigate bias in the prediction. Because
+    the objectives of accuracy and fairness are antagonistic, it is hard to balance the trade-off between them.
+    Recently, Multi-objective Evolutionary Learning (MOEL) framework has been proposed to train a set of Pareto
+    models with the consideration of accuracy and fairness simultaneously. However, this framework prefers to
+    train more accurate models rather than fairer models due to the lack of gradient in terms of fairness. In
+    this paper, MOEL is enhanced through introducing Adversarial Learning (AL). The MOEL-AL framework aims to
+    maximize a set of predictors’ ability to predict true labels and minimize the ability of an adversarial
+    network to predict the sensitive attributes from the predictors’ output. Specifically, the adversarial
+    network can be regarded as a proxy of the undifferentiable fairness metrics, so it is possible to propagate
+    gradients in terms of both accuracy and fairness for the predictors during the back-propagation process.
+    Besides, the adversarial strength for different predictors is adjusted dynamically according to their
+    fairness metric. Compared with the state-of-the-art methods, experimental studies on seven well-known
+    datasets show that our method can provide a set of fairer Pareto models with little drop on accuracy.
+  },
 }
 
 @article{zhang2023mitigating7,
@@ -212,7 +389,23 @@
   public = {yes},
   featured = {1},
   keywords = {fair, multi-objective},
-  summary = {Evolutionary ensemble learning helps balance predictive performance with fair treatment across groups.},
+  abstract = {
+    In the literature of mitigating unfairness in machine learning (ML), many fairness measures are designed to
+    evaluate predictions of learning models and also utilized to guide the training of fair models. It has been
+    theoretically and empirically shown that there exist conflicts and inconsistencies among accuracy and
+    multiple fairness measures. Optimizing one or several fairness measures may sacrifice or deteriorate other
+    measures. Two key questions should be considered: 1) how to simultaneously optimize accuracy and multiple
+    fairness measures and 2) how to optimize all the considered fairness measures more effectively. In this
+    article, we view the mitigating unfairness problem as a multiobjective learning problem, considering the
+    conflicts among fairness measures. A multiobjective evolutionary learning framework is used to
+    simultaneously optimize several metrics (including accuracy and multiple fairness measures) of ML models.
+    Then, ensembles are constructed based on the learning models in order to automatically balance different
+    metrics. Empirical results on eight well-known datasets demonstrate that compared with the state-of-the-art
+    approaches for mitigating unfairness, our proposed algorithm can provide decision makers with better
+    tradeoffs among accuracy and multiple fairness metrics. Furthermore, the high-quality models generated by
+    the framework can be used to construct an ensemble to automatically achieve a better tradeoff among all the
+    considered fairness metrics than other ensemble methods.
+  },
 }
 
 @inproceedings{tong2022simpler6,
@@ -227,6 +420,18 @@
   abstracturl = {https://link.springer.com/chapter/10.1007/978-3-031-09726-3_31#Abs1},
   public = {yes},
   keywords = {optimization},
+  abstract = {
+    Many real-world optimisation problems are in dynamic environments such that the search space and the optimum
+    usually change over time. Various algorithms have been proposed in the literature to deal with such dynamic
+    optimisation problems. In this paper, we focus on the dynamic aero-engine calibration, which is the process
+    of optimising a group of parameters to ensure the performance of an aero-engine under an increasing number
+    of different operation conditions. A real aero-engine is considered in this work. Three different types of
+    strategies for tackling dynamic optimisation problems are compared in our empirical studies. The simplest
+    strategy shows the superior performance which provide an interesting conclusion: Given a new dynamic
+    optimisation problem, the algorithm with complex strategies and having excellent performance on benchmark
+    problems is likely to be applied due to the lack of prior knowledge, however, the simplest restart strategy
+    is sometimes well enough to solve real-world complex dynamic optimisation problems.
+  },
 }
 
 @article{liu2022fsde5,
@@ -243,6 +448,22 @@
   abstracturl = {https://link.springer.com/article/10.1007/s40747-021-00374-1#Abs1},
   public = {yes},
   keywords = {multi-objective},
+  abstract = {
+    Engine calibration aims at simultaneously adjusting a set of parameters to ensure the performance of an
+    engine under various working conditions using an engine simulator. Due to the large number of engine
+    parameters to be calibrated, the performance measurements to be considered, and the working conditions to be
+    tested, the calibration process is very time-consuming and relies on the human knowledge. In this paper, we
+    consider non-convex constrained search space and model a real aero-engine calibration problem as a
+    many-objective optimisation problem. A fast many-objective evolutionary optimisation algorithm with
+    shift-based density estimation, called fSDE, is designed to search for parameters with an acceptable
+    performance accuracy and improve the calibration efficiency. Our approach is compared to several
+    state-of-the-art many- and multi-objective optimisation algorithms on the well-known many-objective
+    optimisation benchmark test suite and a real aero-engine calibration problem, and achieves superior
+    performance. To further validate our approach, the studied aero-engine calibration is also modelled as a
+    single-objective optimisation problem and optimised by some classic and state-of-the-art evolutionary
+    algorithms, compared to which fSDE not only provides more diverse solutions but also finds solutions of
+    high-quality faster.
+  },
 }
 
 @inproceedings{zhang2021fairer4,
@@ -258,6 +479,18 @@
   public = {yes},
   featured = {7},
   keywords = {multi-objective, fair},
+  abstract = {
+    Dilemma between model accuracy and fairness in machine learning models has been shown theoretically and
+    empirically. So far, dozens of fairness measures have been proposed, among which incompatibility and
+    complementarity exist. However, no fairness measure has been universally accepted as the single fairest
+    measure. No one has considered multiple fairness measures simultaneously. In this paper, we propose a
+    multi-objective evolutionary learning framework for mitigating unfairness caused by considering a single
+    measure only, in which a multi-objective evolutionary algorithm is used during training to balance accuracy
+    and multiple fairness measures simultaneously. In our case study, besides the model accuracy, two fairness
+    measures that are conflicting to each other are selected. Empirical results show that our proposed
+    multi-objective evolutionary learning framework is able to find Pareto-front models efficiently and provide
+    fairer machine learning models that consider multiple fairness measures.
+  },
 }
 
 @inproceedings{tong2021learning3,
@@ -272,6 +505,22 @@
   abstracturl = {https://ieeexplore.ieee.org/document/9660107/},
   public = {yes},
   keywords = {optimization},
+  abstract = {
+    Computational intelligence methods have been widely applied to model-based engine calibration. Engine
+    calibration based on computational fluid dynamics (CFD) calculations is time-consuming and constrained. In
+    this paper, we model a real-world aero-engine calibration problem with many parameters as an expensive
+    optimisation problem with hidden constraints. Two surrogate-assisted meta-heuristic frameworks using offline
+    and online strategies are proposed in this paper for efficient aero-engine calibration. A surrogate model is
+    trained on engine parameter settings, that lead to valid and invalid CFD calculations, to predict the
+    feasibility of new parameter settings. Parameter settings that are predicted as infeasible by the surrogate
+    model will be eliminated for evaluation during search to reduce the time wasted on infeasible solutions. To
+    validate our approaches, instantiation of the offline and online frameworks are implemented with a neural
+    network model and a self-adaptive particle swarm optimisation and verified on calibrating a real aero-engine
+    model. Both the proposed offline and online frameworks significantly speed up the calibration in terms of
+    real-time performance compared with the approach without using a surrogate model. The surrogate model not
+    only improves the calibration efficiency but also is capable of indicating the importance of parameters to
+    guide the calibration order.
+  },
 }
 
 @inproceedings{zhang2020dmaens22,
@@ -285,7 +534,19 @@
   url = {https://ieeexplore.ieee.org/document/9308250/},
   abstracturl = {https://ieeexplore.ieee.org/document/9308250/},
   public = {yes},
-  keywords = {optimization},
+  keywords = {multi-objective},
+  abstract = {
+    The capacitated arc routing problem is a challenging combinatorial optimization problem with numerous
+    real-world applications. In recent years, several multi-objective optimization algorithms have been applied
+    to minimize both the total cost and makespan for capacitated arc routing problems, among which the
+    decomposition-based memetic algorithm with extended neighborhood search has shown promising results. In this
+    paper, we propose an improved decomposition-based memetic algorithm with extended neighborhood search,
+    called D-MAENS2, which uses a novel method to construct a gene pool to measure and improve the diversity of
+    solutions in decision variable space. Additionally, D-MAENS2 is capable of adapting online its
+    hyperparameters to various problem instances. Experimental studies show that our novel D-MAENS2
+    significantly outperforms D-MAENS on 81 benchmark instances and shows outstanding performance on instances
+    of large size.
+  },
 }
 
 @inproceedings{li2020extendable1,
@@ -300,4 +561,18 @@
   abstracturl = {https://ieeexplore.ieee.org/document/9308548/},
   public = {yes},
   keywords = {optimization},
+  abstract = {
+    A variety of routing problems have been formalised based on the applications in real life and their specific
+    constraints. Diverse solvers based on one or more exact or approximate algorithms have been designed
+    separately for optimising such problems. In most of the existing works, only the quality of the best
+    solution found within a certain computational time is reported, while its corresponding solution is omitted.
+    However, when the difference between the solution quality is small, decision-makers are more interested in
+    how the actual solutions are and their diversity in decision space. In this paper, we design and implement
+    an online platform that (i) is webpage based, with a uniform online computation environment; (ii) includes a
+    number of routing problem models, problem instances, and solvers; (iii) includes a list of evaluation
+    metrics and allows the visualisation of solutions in different ways for an easier comparison between solvers
+    or solutions; (iv) is extendable, thus, offers the functionality of adding new problems, instances, solvers
+    and evaluation metrics. We also present a novel fast cluster-based genetic algorithm for large-scale
+    travelling salesman problems and perform a study using the proposed platform.
+  },
 }

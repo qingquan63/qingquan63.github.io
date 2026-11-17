@@ -2,8 +2,9 @@
 title: PCG.ME
 summary: A browser-based platform for people and AI to create and explore procedural game content together.
 status: unspecified
+category: platform
 period: "2026"
-order: 2
+order: 1
 links:
   - label: Interactive demo
     href: https://demo.aingames.cn/pcg.me/

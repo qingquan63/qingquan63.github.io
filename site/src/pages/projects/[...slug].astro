@@ -35,7 +35,7 @@ const status = data.status[0].toUpperCase() + data.status.slice(1);
     cover={data.cover}
     coverAlt={data.coverAlt}
     facts={[
-      { label: "Status", value: status },
+      ...(data.status === "unspecified" ? [] : [{ label: "Status", value: status }]),
       { label: "Period", value: data.period },
       ...data.metadata,
     ]}

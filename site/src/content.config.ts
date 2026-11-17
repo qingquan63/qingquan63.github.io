@@ -51,6 +51,7 @@ const projects = defineCollection({
 				title: text,
 				summary: text,
 				status: z.enum(['active', 'past', 'unspecified']),
+				category: z.enum(['platform', 'code']).optional(),
 				period: text,
 				order: z.number().int().nonnegative(),
 				subtitle: text.optional(),
