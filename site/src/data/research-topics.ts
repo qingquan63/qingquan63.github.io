@@ -2,9 +2,9 @@ export const researchTopics = [
   {
     tag: "fair",
     title: "Fair Machine Learning & Responsible AI",
-    quote: "Every individual matters.",
-    author: "Jane Goodall",
-    source: "https://janegoodall.org/tributes-and-reflections/",
+    quote: "a world where technology works well for all of us",
+    author: "Joy Buolamwini",
+    source: "https://www.fordfoundation.org/news-and-stories/videos/how-can-public-interest-tech-change-our-world-for-good/joy-buolamwini-fighting-the-coded-gaze-how-we-make-artificial-intelligence-benefit-all-public-interest-tech/",
   },
   {
     tag: "game",
