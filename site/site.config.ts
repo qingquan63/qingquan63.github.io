@@ -4,7 +4,7 @@ import { researchTopics } from "./src/data/research-topics";
 export const siteConfig = defineSiteConfig({
   author: "Qingquan Zhang",
   title: "Qingquan Zhang",
-  siteUrl: "https://qingquan63.github.io/",
+  siteUrl: "https://qingquan-z.github.io/",
   ogImage: "/favicon.svg",
   hero: {
     headline: "",

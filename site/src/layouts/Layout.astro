@@ -128,6 +128,12 @@ function isActiveNav(href: string): boolean {
 <html lang={siteConfig.language}>
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${canonicalUrl}`} />
+    <script is:inline>
+      window.location.replace(
+        "https://qingquan-z.github.io" + window.location.pathname + window.location.search + window.location.hash,
+      );
+    </script>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
